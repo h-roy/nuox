@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "nuox"
 version = "0.1.0"
 description = "Null-space constrained optimization transforms for Optax."
-readme = "readme.md"
+readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
 authors = [
@@ -17,7 +17,6 @@ dependencies = [
   "jax>=0.4.26",
   "flax>=0.8.5",
   "optax>=0.2.4",
-  "matfree==0.5.2",
 ]
 
 [project.optional-dependencies]
@@ -35,14 +34,6 @@ docs = [
 ]
 visuals = [
   "matplotlib>=3.8",
-]
-examples = [
-  "brax==0.13.0",
-  "imageio==2.37.0",
-  "seaborn==0.13.2",
-  "tqdm==4.67.1",
-  "tensorflow==2.20.0",
-  "tensorflow-datasets==4.9.9",
 ]
 
 [project.urls]

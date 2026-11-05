@@ -19,8 +19,13 @@ repo_url: https://github.com/h-roy/nuox
 repo_name: h-roy/nuox
 
 nav:
-  - 'User Guide': 'index.md'
-  - 'API Reference': 'api.md'
+  - Home: index.md
+  - Quick-start: quickstart.md
+  - User guide: guide.md
+  - Tutorials: tutorials.md
+  - API reference: api.md
+  - Testing: testing.md
+
 # Extensions
 markdown_extensions:
   - pymdownx.highlight:

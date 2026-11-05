@@ -63,6 +63,31 @@ def test_forward_matches_numpy(solver_fn, shape):
     np.testing.assert_allclose(np.asarray(sol), expected, rtol=5e-4, atol=5e-4)
 
 
+@pytest.mark.parametrize("case", ["zero_rhs", "zero_operator", "orthogonal_rhs"])
+def test_lsmr_exact_stationary_initial_point(case):
+    # A nonzero b can also have x=0 as its minimum-norm least-squares solution.
+    matrix = jnp.array([[1.0, 0.0], [0.0, 0.0], [0.0, 2.0]])
+    rhs = jnp.array([0.0, 3.0, 0.0])
+    if case == "zero_rhs":
+        rhs = jnp.zeros(3)
+    elif case == "zero_operator":
+        matrix = jnp.zeros_like(matrix)
+    solver = lstsq_lsmr(maxiter=16)
+
+    @jax.jit
+    def solve(matrix, rhs):
+        return solver(lambda value: matrix.T @ value, rhs)
+
+    solution, stats = solve(matrix, rhs)
+    expected = np.linalg.lstsq(np.asarray(matrix), np.asarray(rhs), rcond=None)[0]
+    np.testing.assert_array_equal(np.asarray(solution), expected)
+    assert int(stats["iteration_count"]) == 0
+    assert int(stats["istop"]) == (8 if case == "zero_rhs" else 9)
+    assert all(np.isfinite(np.asarray(value)).all() for value in stats.values())
+    np.testing.assert_allclose(stats["norm_residual"], np.linalg.norm(np.asarray(rhs)))
+    assert float(stats["norm_At_residual"]) == 0
+
+
 def test_custom_vjp_matches_finite_difference():
     a0, b0 = _random_problem((6, 4), seed=2)
     a1, _ = _random_problem((6, 4), seed=3)

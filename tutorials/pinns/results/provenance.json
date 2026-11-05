@@ -1,0 +1,30 @@
+{
+  "checked_utc": "2026-11-05T11:22:07.103348+00:00",
+  "device": "CPU, four cores",
+  "python": "3.12.14",
+  "packages": {
+    "jax": "0.8.2",
+    "jaxlib": "0.8.2",
+    "optax": "0.2.8",
+    "flax": "0.12.2",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "nuox": "0.1.0"
+  },
+  "nuox_revision": "15ce4a69944a1b85bee69d8175557fe4ecd6867d",
+  "source_sha256": {
+    "setup_tutorial.py": "26b0d0ae9f5503e664e0bf18d2c40ca93e561da803a09a1fb8d0f982e656202d",
+    "figures.py": "5071c8c2ccc42bc2b2ad2ffd75f9a3fd7387881bb49d16ae974f7e45f214a4cd",
+    "pinn.py": "4a3f40e050a6678141e6158aae9ce9ed9b298753d4586b97c4b6a0c9676819b4",
+    "solver.py": "242cca717a103e327f477c562ec372ee91b71220f016fc90bb2559eadcf7b758"
+  },
+  "initial_weights_sha256": "b4967199ddc0c484a8f017c78ca1927ccc27e7674f6516ab0e18b9a880af0243",
+  "training_uses_saved_checkpoints": false,
+  "total_notebook_seconds": 458.7312184049988,
+  "training_time_includes_compilation": true,
+  "gpu_hardware_tested": false,
+  "refinement_updates": 30,
+  "refinement_seconds": 53.03863079199982,
+  "verification": "Original curriculum and baseline executed from scratch; added refinement and updated evaluation/plotting verified from the original NUOX endpoint.",
+  "total_cpu_stage_seconds": 511.7698491969986
+}

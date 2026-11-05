@@ -2,6 +2,12 @@
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# Allow direct execution from a checkout without an editable installation.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import jax
 import jax.numpy as jnp
 import numpy as np

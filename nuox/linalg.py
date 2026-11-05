@@ -7,7 +7,6 @@ from typing import Any, Callable, Tuple
 
 import jax
 import jax.numpy as jnp
-import jax.scipy.linalg as jsp_linalg
 
 LARGE_VALUE = 1e10
 
@@ -157,7 +156,9 @@ def lstsq_lsmr(
             normA=normA,
             condA=condA,
             normx=normx,
-            istop=0,
+            # x=0 is already the minimum-norm solution if b=0 or A.T @ b=0.
+            # A bidiagonalization step would divide by zero in either exact case.
+            istop=jnp.where(beta == 0, 8, jnp.where(alpha == 0, 9, 0)),
         )
         state = jax.tree_util.tree_map(lambda z: jnp.asarray(z), state)
         return state, normb, lambda *a: matvec(*a)[0]

@@ -1,0 +1,29 @@
+{
+  "Penalty PINN": {
+    "rmse": 0.00041137493640646,
+    "relative_l2": 0.000581769236680547,
+    "pde_rms": 0.0003377098938436296,
+    "ic_rms": 0.0001954110878001487,
+    "periodic_rms": 0.0002151374787948256,
+    "training_constraint_max": 0.0007181685149885153,
+    "independent_constraint_max": 0.0007951378936068954,
+    "training_seconds": 164.1060258039979,
+    "accepted_updates": 330,
+    "attempted_updates": 330,
+    "ic_max": 0.0007951378936068954
+  },
+  "NUOX": {
+    "rmse": 0.00040061722956179435,
+    "relative_l2": 0.0005665556143968829,
+    "pde_rms": 0.0015545710824510905,
+    "ic_rms": 1.6946949072061988e-05,
+    "ic_max": 6.04279058525171e-05,
+    "periodic_rms": 5.79411908639997e-05,
+    "training_constraint_max": 0.00015381917728651828,
+    "independent_constraint_max": 0.0001547203453264867,
+    "training_seconds": 335.4371906150027,
+    "accepted_updates": 288,
+    "attempted_updates": 288,
+    "refinement_updates": 30
+  }
+}
